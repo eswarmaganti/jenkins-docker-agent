@@ -12,7 +12,7 @@ RUN yes | apt install openssh-server
 
 # installing nodejs
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-RUN source ~/.bashrc
+SHELL [ "/bin/bash", "-c" ,"source ~/.bashrc"] 
 RUN nvm install v20.12.1
 
 # installing maven
