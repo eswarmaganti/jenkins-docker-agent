@@ -13,9 +13,9 @@ RUN yes | apt install curl
 RUN mkdir -p /var/run/sshd
 
 # installing nodejs
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-SHELL [ "/bin/bash", "-c" ,"source ~/.bashrc"] 
-RUN nvm install v20.12.1
+# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# SHELL [ "/bin/bash", "-c" ,"source ~/.bashrc"] 
+# RUN nvm install v20.12.1
 
 # installing maven
 
@@ -31,7 +31,7 @@ RUN mkdir /home/jenkins/.ssh && chown -R jenkins:jenkins /home/jenkins/.ssh
 # copy the public key of jenkins server
 RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL+hOoZbvvZSI8FfF+JXrAgMmz2O7myFBnjIAxnJGQXu Jenkins" > /home/jenkins/.ssh/authorized_keys
 
-RUN systemctl enable ssh && systemctl start ssh
+RUN service start ssh
 
 # exposing port 22 for ssh to container from jenkins server
 EXPOSE 22
