@@ -13,9 +13,10 @@ RUN yes | apt install curl
 RUN mkdir -p /var/run/sshd
 
 # installing nodejs
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-# SHELL [ "/bin/bash", "-c" ,"source ~/.bashrc"] 
-# RUN nvm install v20.12.1
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+SHELL [ "/bin/bash","-i", "-c" ] 
+RUN source ~/.bashrc
+RUN nvm install lts
 
 # installing maven
 
