@@ -13,7 +13,7 @@ RUN yes | apt install curl
 RUN mkdir -p /var/run/sshd
 
 # installing nodejs
-RUN curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
+RUN curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
 RUN bash /tmp/nodesource_setup.sh
 RUN yes | apt install nodejs
 
