@@ -9,6 +9,7 @@ RUN yes | apt install python3
 RUN yes | apt install default-jdk
 RUN yes | apt install default-jre
 RUN yes | apt install openssh-server
+RUN mkdir -p /var/run/sshd
 
 # installing nodejs
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
