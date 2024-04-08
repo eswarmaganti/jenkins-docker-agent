@@ -9,6 +9,7 @@ RUN yes | apt install python3
 RUN yes | apt install default-jdk
 RUN yes | apt install default-jre
 RUN yes | apt install openssh-server
+RUN yes | apt install curl
 RUN mkdir -p /var/run/sshd
 
 # installing nodejs
