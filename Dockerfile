@@ -22,7 +22,7 @@ RUN nvm install v20.12.1
 
 # add a jenkins user with password
 RUN adduser --quiet jenkins
-RUN echo "jenkins:jenkins123" | chpasswd
+RUN echo "jenkins:jenkins" | chpasswd
 
 RUN mkdir /home/jenkins/.m2 && chown -R jenkins:jenkins /home/jenkins/.m2 
 
