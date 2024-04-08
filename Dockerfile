@@ -10,6 +10,14 @@ RUN yes | apt install default-jdk
 RUN yes | apt install default-jre
 RUN yes | apt install openssh-server
 
+# installing nodejs
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+RUN source ~/.bashrc
+RUN nvm install v20.12.1
+
+# installing maven
+
+
 
 # add a jenkins user with password
 RUN adduser --quiet jenkins
