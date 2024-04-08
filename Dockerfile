@@ -31,7 +31,7 @@ RUN mkdir /home/jenkins/.ssh && chown -R jenkins:jenkins /home/jenkins/.ssh
 # copy the public key of jenkins server
 RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL+hOoZbvvZSI8FfF+JXrAgMmz2O7myFBnjIAxnJGQXu Jenkins" > /home/jenkins/.ssh/authorized_keys
 
-RUN service start ssh
+RUN service enable ssh
 
 # exposing port 22 for ssh to container from jenkins server
 EXPOSE 22
