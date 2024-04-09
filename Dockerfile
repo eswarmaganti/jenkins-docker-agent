@@ -4,12 +4,19 @@ FROM ubuntu:22.04
 
 # update the package manager and install the dependencies
 RUN yes | apt-get update
-RUN yes | apt install git
-RUN yes | apt install python3
-RUN yes | apt install default-jdk
-RUN yes | apt install default-jre
-RUN yes | apt install openssh-server
-RUN yes | apt install curl
+RUN yes | apt install git python3 default-jdk default-jre openssh-server curl ca-certificates
+RUN yes | install -m 0755 -d /etc/apt/keyrings
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+RUN chmod a+r /etc/apt/keyrings/docker.asc
+RUN echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+RUN yes | apt-get update
+RUN yes | sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
 RUN mkdir -p /var/run/sshd
 
 # installing nodejs
